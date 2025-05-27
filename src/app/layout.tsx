@@ -12,7 +12,6 @@ const calistoga = Calistoga({
 
 export const metadata: Metadata = {
   title: "Sultan Sadiq Husain Siddiqui",
-  description: "Created with the help of Frontend Tribe",
 };
 
 export default function RootLayout({
