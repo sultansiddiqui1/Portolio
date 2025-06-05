@@ -8,10 +8,33 @@ import GrainImage from "@/assets/images/grain.jpg";
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 import Socially from "@/assets/images/Socially.png";
+import Skate from "@/assets/images/Skate.png";
 import Saas from "@/assets/images/SAAS.jpg";
 import Puddle from "@/assets/images/Puddle.png";
 
 const portfolioProjects = [
+  {
+    company: "PERSONAL PROJECT",
+    year: "2025",
+    title: "Subarbia – Interactive Skateboard Builder",
+    results: [
+      {
+        title:
+          "Developed a real-time 3D skateboard configurator using Three.js and React Three Fiber.",
+      },
+      {
+        title:
+          "Used React Three Fiber and GSAP for smooth transitions and camera animations in a skateboard design flow.",
+      },
+      {
+        title:
+          "Used Prismic CMS for modular content and Tailwind CSS for responsive design.",
+      },
+    ],
+    link: "https://subarbia.netlify.app/",
+    image: Skate,
+    hosted: true,
+  },
   {
     company: "PERSONAL PROJECT",
     year: "2025",
@@ -27,7 +50,7 @@ const portfolioProjects = [
       },
       {
         title:
-          "mplements server actions, dynamic routes, and optimistic UI updates",
+          "implements server actions, dynamic routes, and optimistic UI updates",
       },
     ],
     link: "https://socially-lovat-mu.vercel.app/",
