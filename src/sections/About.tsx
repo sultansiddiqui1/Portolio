@@ -10,8 +10,6 @@ import ReactIcon from "@/assets/icons/react.svg";
 import Python from "@/assets/icons/python.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
-import MapImage from "@/assets/images/Map2.jpg";
-import smileMemoji from "@/assets/images/memoji-smile.png";
 import Php from "@/assets/icons/php.svg";
 import Next from "@/assets/icons/next.svg";
 import Vue from "@/assets/icons/Vue.svg";
@@ -22,6 +20,14 @@ import CardHeader from "@/components/CardHeader";
 import ToolboxItems from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import dynamic from "next/dynamic";
+
+const CesiumGlobe = dynamic(() => import("@/components/CesiumGlobe"), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 bg-gray-900 animate-pulse rounded-3xl" />
+  ),
+});
 
 const toolBoxItems = [
   {
@@ -197,22 +203,9 @@ export const AboutSection = ({ id }: { id?: string }) => {
                 ))}
               </div>
             </Card>
-            {/*  the map section */}
-            <Card className="h-[320px] p-0 relative col-span-2 lg:col-span-1">
-              <Image
-                src={MapImage}
-                alt="map"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]"></div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10"></div>
-                <Image
-                  src={smileMemoji}
-                  alt="smiling emoji"
-                  className="size-20"
-                />
-              </div>
+            {/* Interactive Cesium globe — Berlin */}
+            <Card className="h-[320px] p-0 relative col-span-2 lg:col-span-1 overflow-hidden">
+              <CesiumGlobe />
             </Card>
           </div>
         </div>

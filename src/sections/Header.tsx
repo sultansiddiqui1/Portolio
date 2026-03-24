@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Header = () => {
   return (
     <div className="flex justify-center items-center fixed top-3 w-full z-10">
@@ -11,6 +13,9 @@ export const Header = () => {
         <a href="#about" className="nav-item">
           About
         </a>
+        <Link href="/about-me" className="nav-item">
+          Beyond Code
+        </Link>
         <a
           href="https://www.linkedin.com/in/sultan-sadiq-husain-siddiqui/"
           target="_blank"
