@@ -519,38 +519,74 @@ export default function AboutMePage() {
           {/* Menu card + Seating chart */}
           <div data-reveal className="flex flex-col md:flex-row gap-8 items-center justify-center w-full max-w-3xl">
 
-            {/* Restaurant menu card */}
-            <div className="relative border border-white/10 rounded-2xl p-8 w-full max-w-xs text-left flex-shrink-0 mt-10"
-                 style={{ background: 'rgba(255,255,255,0.02)' }}>
-              {/* Chef's hat — sitting on the top-left corner of the card */}
-              <div className="absolute -top-10 left-5" style={{ transform: 'rotate(-10deg)' }}>
-                <svg width="48" height="52" viewBox="0 0 44 48" fill="none">
-                  <ellipse cx="22" cy="18" rx="18" ry="16" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
-                  <rect x="6" y="28" width="32" height="16" rx="3" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.18)" strokeWidth="1"/>
-                  <rect x="6" y="28" width="32" height="6" rx="2" fill="rgba(255,255,255,0.1)"/>
-                  <line x1="14" y1="10" x2="14" y2="28" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-                  <line x1="22" y1="6"  x2="22" y2="28" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-                  <line x1="30" y1="10" x2="30" y2="28" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-                </svg>
-              </div>
-              <p className="text-center text-white/25 uppercase tracking-[.2em] text-[9px] mb-1">Chef&apos;s Table</p>
-              <p className="text-center text-white/20 text-[10px] italic mb-6">Berlin · Est. whenever he has guests</p>
-              <div className="border-t border-white/8 space-y-4 pt-5">
-                {[
-                  { name: 'Chicken Curry',  note: 'slow cooked, always too much — intentionally' },
-                  { name: 'Paneer Masala',  note: 'for the ones who don\'t eat meat' },
-                  { name: 'Dal',            note: 'the one that tastes like home' },
-                  { name: 'Mutton',         note: 'only on special occasions. worth the wait' },
-                  { name: 'Lentil Soup',    note: 'when it\'s cold and people need something warm' },
-                ].map((dish) => (
-                  <div key={dish.name} className="pb-4 border-b border-white/5 last:border-0 last:pb-0">
-                    <div className="flex items-center justify-between">
-                      <span className="font-serif text-white/80 text-sm">{dish.name}</span>
-                      <span className="text-emerald-300/40 text-xs">✦</span>
-                    </div>
-                    <p className="text-white/25 text-[10px] italic mt-0.5">{dish.note}</p>
+            {/* Restaurant menu card — fine dining */}
+            <div className="relative w-full max-w-xs flex-shrink-0 rounded-2xl overflow-hidden"
+                 style={{ background: 'linear-gradient(160deg, #0f2318 0%, #091a10 100%)',
+                          border: '1px solid rgba(212,175,55,0.25)' }}>
+
+              {/* Ornamental corner pieces */}
+              {[
+                'top-2 left-2 border-t border-l',
+                'top-2 right-2 border-t border-r',
+                'bottom-2 left-2 border-b border-l',
+                'bottom-2 right-2 border-b border-r',
+              ].map((cls, i) => (
+                <div key={i} className={`absolute w-5 h-5 ${cls}`}
+                     style={{ borderColor: 'rgba(212,175,55,0.4)' }} />
+              ))}
+
+              <div className="px-8 py-8">
+                {/* Header */}
+                <div className="text-center mb-5">
+                  {/* Gold ornament */}
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <div className="h-px flex-1" style={{ background: 'rgba(212,175,55,0.3)' }} />
+                    <span style={{ color: 'rgba(212,175,55,0.7)', fontSize: 14 }}>✦</span>
+                    <div className="h-px flex-1" style={{ background: 'rgba(212,175,55,0.3)' }} />
                   </div>
-                ))}
+                  <p className="uppercase tracking-[.25em] text-[9px] mb-0.5"
+                     style={{ color: 'rgba(212,175,55,0.6)' }}>Chef&apos;s Table</p>
+                  <p className="text-[10px] italic" style={{ color: 'rgba(212,175,55,0.3)' }}>
+                    Berlin · Est. whenever he has guests
+                  </p>
+                  <div className="flex items-center justify-center gap-2 mt-3">
+                    <div className="h-px flex-1" style={{ background: 'rgba(212,175,55,0.3)' }} />
+                    <span style={{ color: 'rgba(212,175,55,0.7)', fontSize: 14 }}>✦</span>
+                    <div className="h-px flex-1" style={{ background: 'rgba(212,175,55,0.3)' }} />
+                  </div>
+                </div>
+
+                {/* Dishes */}
+                <div className="space-y-4">
+                  {[
+                    { name: 'Chicken Curry',  note: 'slow cooked, always too much — intentionally' },
+                    { name: 'Paneer Masala',  note: 'for the ones who don\'t eat meat' },
+                    { name: 'Dal',            note: 'the one that tastes like home' },
+                    { name: 'Mutton',         note: 'only on special occasions. worth the wait' },
+                    { name: 'Lentil Soup',    note: 'when it\'s cold and people need something warm' },
+                  ].map((dish, i, arr) => (
+                    <div key={dish.name}
+                         className={`pb-4 ${i < arr.length - 1 ? 'border-b' : ''}`}
+                         style={{ borderColor: 'rgba(212,175,55,0.1)' }}>
+                      <div className="flex items-center justify-between">
+                        <span className="font-serif text-sm" style={{ color: 'rgba(255,245,220,0.85)' }}>
+                          {dish.name}
+                        </span>
+                        <span style={{ color: 'rgba(212,175,55,0.5)', fontSize: 10 }}>✦</span>
+                      </div>
+                      <p className="text-[10px] italic mt-0.5" style={{ color: 'rgba(212,175,55,0.35)' }}>
+                        {dish.note}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footer ornament */}
+                <div className="flex items-center justify-center gap-2 mt-5">
+                  <div className="h-px flex-1" style={{ background: 'rgba(212,175,55,0.2)' }} />
+                  <span style={{ color: 'rgba(212,175,55,0.4)', fontSize: 10 }}>✦ ✦ ✦</span>
+                  <div className="h-px flex-1" style={{ background: 'rgba(212,175,55,0.2)' }} />
+                </div>
               </div>
             </div>
 
@@ -590,26 +626,6 @@ export default function AboutMePage() {
             </div>
 
           </div>
-        </section>
-
-        {/* ── 7. LITERATURE ───────────────────────────────────────────────────── */}
-        <section className="min-h-[75vh] flex flex-col items-center justify-center text-center px-6 border-t border-white/5">
-          <p
-            data-reveal
-            className="text-white/25 uppercase tracking-widest text-xs mb-5"
-          >
-            Literature
-          </p>
-          <blockquote
-            data-reveal
-            className="font-serif text-3xl md:text-5xl max-w-2xl leading-snug"
-          >
-            &ldquo;I don&apos;t care where the story goes.{" "}
-            <span className="text-white/40">
-              I care what it does to the person it&apos;s happening to.
-            </span>
-            &rdquo;
-          </blockquote>
         </section>
 
         {/* ── 8. CONVERSATIONALIST ────────────────────────────────────────────── */}
