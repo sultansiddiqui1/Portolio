@@ -8,6 +8,9 @@ import Image from "next/image";
 import grainImage from "@/assets/images/grain.jpg";
 import Card from "@/components/Card";
 import { Fragment } from "react";
+import dynamic from "next/dynamic";
+
+const WorkHistory = dynamic(() => import("@/components/WorkHistory"), { ssr: false });
 
 const testimonials = [
   {
@@ -36,10 +39,11 @@ const testimonials = [
   },
 ];
 
-export const TestimonialsSection = () => {
+export const TestimonialsSection = ({ id }: { id?: string }) => {
   return (
-    <div className="py-16 lg:py-24">
-      <div className="container">
+    <div className="py-16 lg:py-24" id={id}>
+      <WorkHistory />
+      <div className="container mt-24">
         <SectionHeader
           eyebrow="A look into the past"
           title="What Employers Say About Me"

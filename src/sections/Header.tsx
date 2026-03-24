@@ -13,6 +13,9 @@ export const Header = () => {
         <a href="/#about" className="nav-item">
           About
         </a>
+        <a href="/#experience" className="nav-item">
+          Experience
+        </a>
         <Link href="/about-me" className="nav-item">
           Beyond Code
         </Link>

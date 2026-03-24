@@ -24,6 +24,7 @@ const portfolioProjects = [
       { title: 'Used React Three Fiber and GSAP for smooth transitions and camera animations in a skateboard design flow.' },
       { title: 'Used Prismic CMS for modular content and Tailwind CSS for responsive design.' },
     ],
+    tech: ['Three.js', 'React Three Fiber', 'GSAP', 'Next.js', 'Prismic', 'Tailwind'],
     link: 'https://subarbia.netlify.app/',
     image: Skate,
     hosted: true,
@@ -37,6 +38,7 @@ const portfolioProjects = [
       { title: 'Enables secure login, post creation, likes, comments & social interactions' },
       { title: 'Implements server actions, dynamic routes, and optimistic UI updates' },
     ],
+    tech: ['Next.js', 'Prisma', 'Clerk', 'PostgreSQL', 'Tailwind'],
     link: 'https://socially-lovat-mu.vercel.app/',
     image: Socially,
     hosted: true,
@@ -50,6 +52,7 @@ const portfolioProjects = [
       { title: 'Secure Stripe payments and subscription billing with Clerk-based authentication' },
       { title: 'Optimistic UI updates with React Query and real-time user feedback' },
     ],
+    tech: ['Next.js', 'OpenAI', 'Stripe', 'Prisma', 'React Query', 'Clerk'],
     link: 'https://github.com/sultansiddiqui1/SAAS-AI-Meal-Plan',
     image: Saas,
     hosted: false,
@@ -63,6 +66,7 @@ const portfolioProjects = [
       { title: 'Implemented dashboards, form validation, and a custom admin panel using Django' },
       { title: 'Strengthened back-end skills by building features with Django ORM and reusable views' },
     ],
+    tech: ['Django', 'Python', 'PostgreSQL', 'Tailwind', 'HTML/CSS'],
     link: 'https://github.com/sultansiddiqui1/Online-Marketplace',
     image: Puddle,
     hosted: false,
@@ -150,6 +154,16 @@ export const ProjectsSection = ({ id }: { id?: string }) => {
                       </li>
                     ))}
                   </ul>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-3 py-1 rounded-full text-xs font-medium border border-white/10 text-white/40 bg-white/5"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                   <a href={project.link} target="_blank" rel="noreferrer">
                     <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
                       <span>{project.hosted ? 'Visit Live Site' : 'Visit Github'}</span>
